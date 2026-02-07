@@ -193,12 +193,24 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "view_kit_link": {
+              "type": "custom-liquid",
+              "name": "View kit link",
+              "settings": {
+                "custom_liquid": "<a class=\"button button--secondary\" href=\"{{ closest.product.url }}\">View kit</a>",
+                "padding-block-start": 8,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              }
             }
           },
           "block_order": [
             "card-gallery",
             "product_title_4nY4eT",
-            "price_EzJzMm"
+            "price_EzJzMm",
+            "view_kit_link"
           ]
         }
       },

@@ -38,7 +38,7 @@
         "hero_headline": {
           "type": "jumbo-text",
           "settings": {
-            "text": "<h1>Ready for Beirut roads.</h1>",
+            "text": "<h1>Own the road, every day.</h1>",
             "width": "100%",
             "max_width": "narrow",
             "alignment": "left",
@@ -63,7 +63,7 @@
         "hero_sub": {
           "type": "text",
           "settings": {
-            "text": "<p>Three premium car kits for heat, traffic, potholes, and long days.</p>",
+            "text": "<p>Three premium kits built for Lebanon: heat, traffic, potholes, long days.</p>",
             "width": "100%",
             "max_width": "narrow",
             "alignment": "left",
@@ -88,7 +88,7 @@
         "hero_btn": {
           "type": "button",
           "settings": {
-            "label": "Shop the kits",
+            "label": "Discover the kits",
             "link": "#kits",
             "style_class": "button",
             "width": "fit-content",
@@ -110,33 +110,21 @@
       "type": "sanad-kits",
       "name": "Kits",
       "settings": {
-        "heading": "Three kits. One clear choice each.",
-        "subheading": "<p>Emergency. Comfort. Maintenance.</p>",
+        "heading": "Three kits. Zero guesswork.",
+        "subheading": "<p>Emergency, Comfort, and Maintenance.</p>",
         "emergency_collection": "",
         "emergency_image": "",
-        "emergency_description": "<p>Stay sharp when the road flips fast.</p>",
+        "emergency_description": "<p>Fast confidence when the road turns unpredictable.</p>",
         "comfort_collection": "",
         "comfort_image": "",
-        "comfort_description": "<p>Cool cabin, calm drive, longer focus.</p>",
+        "comfort_description": "<p>Cooler, calmer driving through heat and traffic.</p>",
         "maintenance_collection": "",
         "maintenance_image": "",
-        "maintenance_description": "<p>Keep your car clean, ready, and tight.</p>",
-        "note": "<p>Cash on Delivery and Whish, across Lebanon.</p>",
+        "maintenance_description": "<p>Clean, ready, and tuned for everyday mileage.</p>",
+        "note": "<p>Cash on Delivery and Whish Money available across Lebanon.</p>",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
         "padding-block-start": 12,
-        "padding-block-end": 12
-      }
-    },
-    "sanad_message": {
-      "type": "sanad-message",
-      "settings": {
-        "kicker": "Sanad Drive",
-        "heading": "Built for the Lebanese drive.",
-        "body": "<p>Premium kits that match real road pressure.</p>",
-        "section_width": "page-width",
-        "color_scheme": "scheme-1",
-        "padding-block-start": 24,
         "padding-block-end": 12
       }
     },
@@ -148,7 +136,7 @@
           "settings": {
             "kicker": "Emergency",
             "title": "Emergency Kit",
-            "lead": "<p>Prepared for sudden moments \u2014 practical, quiet, reliable.</p>",
+            "lead": "<p>Prepared for sudden moments — practical, quiet, reliable.</p>",
             "bullets": "<ul><li>Safety + visibility</li><li>Power essentials</li><li>Self-preparedness tools</li></ul>"
           }
         },
@@ -166,7 +154,7 @@
           "settings": {
             "kicker": "Maintenance",
             "title": "Maintenance Kit",
-            "lead": "<p>Prevent problems \u2014 light upkeep, clean care, better habits.</p>",
+            "lead": "<p>Prevent problems — light upkeep, clean care, better habits.</p>",
             "bullets": "<ul><li>Cleaning + care</li><li>Basic monitoring</li><li>Preventive essentials</li></ul>"
           }
         }
@@ -177,8 +165,8 @@
         "k3"
       ],
       "settings": {
-        "heading": "Pick the kit that matches your intent.",
-        "subheading": "<p>Three kits only. Each one has a clear purpose \u2014 so you don\u2019t overbuy, underbuy, or carry junk.</p>",
+        "heading": "Choose your lane.",
+        "subheading": "<p>Three kits. Three clear outcomes.</p>",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
         "padding-block-start": 0,
@@ -205,8 +193,8 @@
         "t3": {
           "type": "trust_item",
           "settings": {
-            "title": "Nationwide delivery",
-            "body": "<p>From Beirut traffic to mountain roads.</p>"
+            "title": "Lebanon delivery",
+            "body": "<p>From Beirut to every major region.</p>"
           }
         },
         "t4": {
@@ -224,7 +212,7 @@
         "t4"
       ],
       "settings": {
-        "heading": "Trusted at checkout. Trusted on the road.",
+        "heading": "Checkout confidence, Lebanon-wide.",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
         "padding-block-start": 12,
@@ -234,7 +222,6 @@
   },
   "order": [
     "hero_p9CmMG",
-    "sanad_message",
     "sanad_kits_fa260d",
     "sanad_compare",
     "sanad_trust"
