@@ -3,11 +3,11 @@
     "kit_header": {
       "type": "sanad-kit-landing",
       "settings": {
-        "kicker": "Sanad Drive Kit",
+        "kicker": "Sanad Drive",
         "title": "Comfort Kit",
-        "subtitle": "<p>Relief for long drives, heat, traffic, and fatigue — calm premium execution.</p>",
-        "bullets": "<ul><li>Comfort and posture essentials</li><li>Heat + interior ease items</li><li>Daily usability upgrades</li></ul>",
-        "disclaimer": "<p>Lebanon-first: Cash on Delivery + Whish. Products only — no roadside services.</p>",
+        "subtitle": "<p>Cooler cabin. Calmer days.</p>",
+        "bullets": "<ul><li>Heat-day comfort upgrades</li><li>Traffic-hour relief items</li><li>Interior ease for daily drives</li></ul>",
+        "disclaimer": "<p>Built for Lebanon. Cash on Delivery and Whish available.</p>",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
         "padding-block-start": 40,
@@ -116,7 +116,11 @@
               }
             }
           },
-          "block_order": ["card-gallery", "product_title", "price"]
+          "block_order": [
+            "card-gallery",
+            "product_title",
+            "price"
+          ]
         }
       },
       "settings": {
@@ -135,5 +139,8 @@
       }
     }
   },
-  "order": ["kit_header", "main"]
+  "order": [
+    "kit_header",
+    "main"
+  ]
 }
