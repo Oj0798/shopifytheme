@@ -233,7 +233,7 @@
               "type": "text",
               "name": "Payment note",
               "settings": {
-                "text": "<p style='margin:0;color:rgba(29,29,31,.75);font-size:0.95rem'>Pay cash on delivery or via Whish Money.</p>",
+                "text": "<p>Pay cash on delivery or via Whish Money.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
