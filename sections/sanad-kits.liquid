@@ -1,0 +1,340 @@
+{%- comment -%}
+  Sanad Drive Kits (Stable Skeleton)
+  - Always renders 3 kit cards: Emergency / Comfort / Maintenance.
+  - Each card can optionally link to a selected collection.
+  - No product grids. No collages. No demo content.
+  - If a collection is not selected, the card is visible but not clickable.
+{%- endcomment -%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<section
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="sanad-kits-{{ section.id }}"
+  id="kits"
+>
+  <div class="sanad-kits">
+    {% if section.settings.heading != blank %}
+      <header class="sanad-kits__header">
+        <h2 class="sanad-kits__title">{{ section.settings.heading | escape }}</h2>
+        {% if section.settings.subheading != blank %}
+          <p class="sanad-kits__subtitle">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </header>
+    {% endif %}
+
+    <div class="sanad-kits__grid">
+
+      {%- assign emergency_collection = section.settings.emergency_collection -%}
+      {%- assign comfort_collection = section.settings.comfort_collection -%}
+      {%- assign maintenance_collection = section.settings.maintenance_collection -%}
+
+      {% render 'sanad-kit-card',
+        title: 'Emergency Kit',
+        description: section.settings.emergency_description,
+        kit_image: section.settings.emergency_image,
+        kit_collection: emergency_collection,
+        tone: 'preparedness'
+      %}
+
+      {% render 'sanad-kit-card',
+        title: 'Comfort Kit',
+        description: section.settings.comfort_description,
+        kit_image: section.settings.comfort_image,
+        kit_collection: comfort_collection,
+        tone: 'comfort'
+      %}
+
+      {% render 'sanad-kit-card',
+        title: 'Maintenance Kit',
+        description: section.settings.maintenance_description,
+        kit_image: section.settings.maintenance_image,
+        kit_collection: maintenance_collection,
+        tone: 'maintenance'
+      %}
+
+    </div>
+
+    {% if section.settings.note != blank %}
+      <div class="sanad-kits__note">{{ section.settings.note }}</div>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .sanad-kits {
+    display: grid;
+    gap: var(--gap-2xl);
+  }
+
+  .sanad-kits__header {
+    display: grid;
+    gap: var(--gap-xs);
+  }
+
+  .sanad-kits__title {
+    margin: 0;
+    font-size: clamp(1.35rem, 2vw, 1.75rem);
+    letter-spacing: -0.02em;
+  }
+
+  .sanad-kits__subtitle {
+    margin: 0;
+    max-width: 60ch;
+    color: rgba(29, 29, 31, .78);
+    line-height: 1.5;
+  }
+
+  .sanad-kits__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--gap-xl);
+  }
+
+  @media (min-width: 749px) {
+    .sanad-kits__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .sanad-kits__note {
+    max-width: 70ch;
+    color: rgba(29, 29, 31, .78);
+    font-size: .95rem;
+    line-height: 1.5;
+  }
+
+  .sanad-kit {
+    border: 1px solid rgba(0,0,0,.07);
+    border-radius: 24px;
+    overflow: hidden;
+    background: rgba(255,255,255,.94);
+    box-shadow: 0 10px 30px rgba(0,0,0,.04);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+
+  .sanad-kit__link {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .sanad-kit__link--disabled {
+    cursor: default;
+  }
+
+  .sanad-kit__media {
+    aspect-ratio: 4 / 3;
+    background: rgba(0,0,0,.015);
+  }
+
+  .sanad-kit__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.001);
+    transition: transform .45s ease;
+  }
+
+  .sanad-kit__placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,.03), rgba(0,0,0,.06));
+  }
+
+  .sanad-kit__content {
+    padding: 18px;
+    display: grid;
+    gap: 10px;
+  }
+
+  .sanad-kit__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sanad-kit__pill {
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(29,29,31,.65);
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 999px;
+    padding: 6px 10px;
+    line-height: 1;
+    background: rgba(255,255,255,.75);
+  }
+
+  .sanad-kit__arrow {
+    color: rgba(29,29,31,.65);
+  }
+
+  .sanad-kit__title {
+    margin: 0;
+    font-size: 1.05rem;
+    letter-spacing: -0.015em;
+  }
+
+  .sanad-kit__desc {
+    color: rgba(29,29,31,.78);
+    line-height: 1.5;
+    font-size: .95rem;
+  }
+
+  .sanad-kit__meta {
+    margin-top: 2px;
+    font-size: .85rem;
+    color: rgba(29,29,31,.72);
+  }
+
+  @media (hover: hover) {
+    .sanad-kit__link:not(.sanad-kit__link--disabled):hover .sanad-kit {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.06);
+      border-color: rgba(0,0,0,.1);
+    }
+
+    .sanad-kit__link:not(.sanad-kit__link--disabled):hover .sanad-kit__img {
+      transform: scale(1.03);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Sanad Kits",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Three kits. No clutter."
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Preparedness, comfort, and maintenance — built for Lebanese driving realities.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Emergency Kit"
+    },
+    {
+      "type": "collection",
+      "id": "emergency_collection",
+      "label": "Collection (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "emergency_image",
+      "label": "Image (optional)"
+    },
+    {
+      "type": "richtext",
+      "id": "emergency_description",
+      "label": "Description",
+      "default": "<p>Be prepared for the unexpected. Products only — not roadside assistance.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Comfort Kit"
+    },
+    {
+      "type": "collection",
+      "id": "comfort_collection",
+      "label": "Collection (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "comfort_image",
+      "label": "Image (optional)"
+    },
+    {
+      "type": "richtext",
+      "id": "comfort_description",
+      "label": "Description",
+      "default": "<p>Relief for long drives, heat, traffic, and fatigue. Calm execution.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Maintenance Kit"
+    },
+    {
+      "type": "collection",
+      "id": "maintenance_collection",
+      "label": "Collection (optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "maintenance_image",
+      "label": "Image (optional)"
+    },
+    {
+      "type": "richtext",
+      "id": "maintenance_description",
+      "label": "Description",
+      "default": "<p>Preventive, light-upkeep tools for everyday car care. No repairs. No drama.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "note",
+      "label": "Bottom note (optional)",
+      "default": "<p>Cash on Delivery and Whish supported in Lebanon.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page" },
+        { "value": "full-width", "label": "Full" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 24,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sanad Kits"
+    }
+  ]
+}
+{% endschema %}

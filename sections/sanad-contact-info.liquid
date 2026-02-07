@@ -1,0 +1,140 @@
+{%- comment -%}
+  Sanad Contact Info
+  - Premium, Lebanon-first contact module.
+  - Keeps scope: product company (no roadside services).
+{%- endcomment -%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<section
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="sanad-contact-info-{{ section.id }}"
+>
+  <div class="sanad-contact">
+    <header class="sanad-contact__header">
+      {% if section.settings.heading != blank %}
+        <h2 class="sanad-contact__title">{{ section.settings.heading | escape }}</h2>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+        <div class="sanad-contact__subtitle rte">{{ section.settings.subtitle }}</div>
+      {% endif %}
+    </header>
+
+    <div class="sanad-contact__grid">
+      <div class="sanad-contact__card">
+        <div class="sanad-contact__card-title">WhatsApp</div>
+        <div class="sanad-contact__value">{{ section.settings.whatsapp | escape }}</div>
+        {% if section.settings.whatsapp_note != blank %}
+          <div class="sanad-contact__note">{{ section.settings.whatsapp_note }}</div>
+        {% endif %}
+      </div>
+
+      <div class="sanad-contact__card">
+        <div class="sanad-contact__card-title">Email</div>
+        <div class="sanad-contact__value">{{ section.settings.email | escape }}</div>
+        {% if section.settings.email_note != blank %}
+          <div class="sanad-contact__note">{{ section.settings.email_note }}</div>
+        {% endif %}
+      </div>
+
+      <div class="sanad-contact__card">
+        <div class="sanad-contact__card-title">Payments (Lebanon)</div>
+        <div class="sanad-contact__value">Cash on Delivery + Whish Money</div>
+        <div class="sanad-contact__note">Products only — no towing, no dispatch.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .sanad-contact {
+    max-width: 1040px;
+    margin: 0 auto;
+    display: grid;
+    gap: 18px;
+  }
+
+  .sanad-contact__header {
+    display: grid;
+    gap: 8px;
+  }
+
+  .sanad-contact__title {
+    margin: 0;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    letter-spacing: -0.02em;
+  }
+
+  .sanad-contact__subtitle {
+    color: rgba(29, 29, 31, 0.78);
+    line-height: 1.5;
+  }
+
+  .sanad-contact__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  @media (min-width: 900px) {
+    .sanad-contact__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+  }
+
+  .sanad-contact__card {
+    border: 1px solid rgba(0,0,0,.07);
+    border-radius: 22px;
+    padding: 18px;
+    background: rgba(255,255,255,.92);
+  }
+
+  .sanad-contact__card-title {
+    font-size: .85rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(29,29,31,.6);
+    margin-bottom: 12px;
+  }
+
+  .sanad-contact__value {
+    font-size: 1.02rem;
+    letter-spacing: -0.01em;
+  }
+
+  .sanad-contact__note {
+    margin-top: 10px;
+    font-size: .92rem;
+    color: rgba(29,29,31,.75);
+    line-height: 1.45;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Sanad Contact Info",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Contact" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtitle", "default": "<p>Questions about what belongs in a kit? Ask. We answer clearly. No service promises. Products only.</p>" },
+    { "type": "text", "id": "whatsapp", "label": "WhatsApp", "default": "+961 00 000 000" },
+    { "type": "text", "id": "whatsapp_note", "label": "WhatsApp note", "default": "Fast replies during business hours." },
+    { "type": "text", "id": "email", "label": "Email", "default": "support@sanaddrive.com" },
+    { "type": "text", "id": "email_note", "label": "Email note", "default": "Detailed questions welcome." },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "default": "page-width",
+      "options": [
+        { "value": "full-width", "label": "Full" },
+        { "value": "page-width", "label": "Page" }
+      ]
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "range", "id": "padding-block-start", "label": "Top padding", "min": 0, "max": 120, "step": 4, "default": 12 },
+    { "type": "range", "id": "padding-block-end", "label": "Bottom padding", "min": 0, "max": 160, "step": 4, "default": 24 }
+  ]
+}
+{% endschema %}

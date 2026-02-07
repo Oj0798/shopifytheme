@@ -1,0 +1,105 @@
+{%- comment -%}
+  Sanad Message (brand statement)
+  Purpose: replace custom-liquid "Idea" blocks with a consistent, premium section.
+{%- endcomment -%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<section
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="sanad-message-{{ section.id }}"
+>
+  <div class="sanad-message">
+    {% if section.settings.kicker != blank %}
+      <div class="sanad-message__kicker">{{ section.settings.kicker | escape }}</div>
+    {% endif %}
+
+    {% if section.settings.heading != blank %}
+      <h2 class="sanad-message__title">{{ section.settings.heading | escape }}</h2>
+    {% endif %}
+
+    {% if section.settings.body != blank %}
+      <div class="sanad-message__body rte">{{ section.settings.body }}</div>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .sanad-message {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .sanad-message__kicker {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(29, 29, 31, 0.62);
+  }
+
+  .sanad-message__title {
+    margin: 0;
+    font-size: clamp(1.35rem, 2.25vw, 2rem);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  .sanad-message__body {
+    margin: 0;
+    color: rgba(29, 29, 31, 0.78);
+    font-size: 1.02rem;
+    line-height: 1.6;
+  }
+
+  .sanad-message__body p {
+    margin: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Sanad Message",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Sanad Drive"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Preparedness, not repair."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>We sell curated car kits built for Lebanese driving realities — clean, calm, and product-first. No roadside services. No random accessories.</p>"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "default": "page-width",
+      "options": [
+        { "value": "full-width", "label": "Full" },
+        { "value": "page-width", "label": "Page" }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    { "type": "range", "id": "padding-block-start", "label": "Top padding", "min": 0, "max": 120, "step": 4, "default": 28 },
+    { "type": "range", "id": "padding-block-end", "label": "Bottom padding", "min": 0, "max": 160, "step": 4, "default": 28 }
+  ]
+}
+{% endschema %}

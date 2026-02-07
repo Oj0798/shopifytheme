@@ -1,0 +1,191 @@
+{%- comment -%}
+  Sanad Kit Compare
+  - A signature component: clear differentiation without product lists.
+  - Always three columns, aligned to the 3-kit architecture.
+{%- endcomment -%}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+
+<section
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="sanad-kit-compare-{{ section.id }}"
+>
+  <div class="sanad-compare">
+    {% if section.settings.heading != blank %}
+      <header class="sanad-compare__header">
+        <h2 class="sanad-compare__title">{{ section.settings.heading | escape }}</h2>
+        {% if section.settings.subheading != blank %}
+          <p class="sanad-compare__subtitle">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </header>
+    {% endif %}
+
+    <div class="sanad-compare__grid">
+      {% for block in section.blocks %}
+        <article class="sanad-compare__card">
+          <div class="sanad-compare__kicker">{{ block.settings.kicker | escape }}</div>
+          <h3 class="sanad-compare__card-title">{{ block.settings.title | escape }}</h3>
+          {% if block.settings.lead != blank %}
+            <div class="sanad-compare__lead">{{ block.settings.lead }}</div>
+          {% endif %}
+          {% if block.settings.bullets != blank %}
+            <div class="sanad-compare__bullets rte">{{ block.settings.bullets }}</div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .sanad-compare {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    gap: 18px;
+  }
+
+  .sanad-compare__header {
+    display: grid;
+    gap: 8px;
+  }
+
+  .sanad-compare__title {
+    margin: 0;
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    letter-spacing: -0.02em;
+  }
+
+  .sanad-compare__subtitle {
+    margin: 0;
+    max-width: 70ch;
+    color: rgba(29, 29, 31, 0.78);
+    line-height: 1.5;
+  }
+
+  .sanad-compare__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  @media (min-width: 900px) {
+    .sanad-compare__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .sanad-compare__card {
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 22px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .sanad-compare__kicker {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(29, 29, 31, 0.55);
+    margin-bottom: 10px;
+  }
+
+  .sanad-compare__card-title {
+    margin: 0;
+    font-size: 1.1rem;
+    letter-spacing: -0.015em;
+  }
+
+  .sanad-compare__lead {
+    margin-top: 8px;
+    color: rgba(29, 29, 31, 0.78);
+    line-height: 1.5;
+  }
+
+  .sanad-compare__bullets {
+    margin-top: 12px;
+    color: rgba(29, 29, 31, 0.76);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .sanad-compare__bullets ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .sanad-compare__bullets li {
+    margin: 6px 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Sanad Kit Compare",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Pick the kit that matches your intent." },
+    { "type": "richtext", "id": "subheading", "label": "Subheading", "default": "<p>Three kits only. Each one has a clear purpose — so you don’t overbuy, underbuy, or carry junk.</p>" },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "default": "page-width",
+      "options": [
+        { "value": "full-width", "label": "Full" },
+        { "value": "page-width", "label": "Page" }
+      ]
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "range", "id": "padding-block-start", "label": "Top padding", "min": 0, "max": 120, "step": 4, "default": 12 },
+    { "type": "range", "id": "padding-block-end", "label": "Bottom padding", "min": 0, "max": 160, "step": 4, "default": 28 }
+  ],
+  "blocks": [
+    {
+      "type": "kit",
+      "name": "Kit",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "kicker", "label": "Kicker", "default": "Kit" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Emergency Kit" },
+        { "type": "richtext", "id": "lead", "label": "Lead", "default": "<p>Prepared for sudden moments — without pretending to be a service company.</p>" },
+        { "type": "richtext", "id": "bullets", "label": "Bullets", "default": "<ul><li>Safety + visibility basics</li><li>Power and charging essentials</li><li>Self-preparedness, not repair</li></ul>" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sanad Kit Compare",
+      "blocks": [
+        {
+          "type": "kit",
+          "settings": {
+            "kicker": "Emergency",
+            "title": "Emergency Kit",
+            "lead": "<p>Prepared for sudden situations — clean, practical, non-dramatic.</p>",
+            "bullets": "<ul><li>Visibility + safety items</li><li>Basic breakdown tools</li><li>Power essentials</li></ul>"
+          }
+        },
+        {
+          "type": "kit",
+          "settings": {
+            "kicker": "Comfort",
+            "title": "Comfort Kit",
+            "lead": "<p>Relief for long drives, heat, traffic, and fatigue.</p>",
+            "bullets": "<ul><li>Seat and posture comfort</li><li>Cooling / convenience</li><li>Interior usability</li></ul>"
+          }
+        },
+        {
+          "type": "kit",
+          "settings": {
+            "kicker": "Maintenance",
+            "title": "Maintenance Kit",
+            "lead": "<p>Preventive, light-upkeep tools — keep the car in shape.</p>",
+            "bullets": "<ul><li>Cleaning + care</li><li>Basic monitoring</li><li>Small preventive accessories</li></ul>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "message": {
+      "type": "sanad-message",
+      "settings": {
+        "kicker": "Sanad Drive",
+        "heading": "A product company. Not roadside assistance.",
+        "body": "<p>Sanad Drive sells curated car kits designed for Lebanese driving realities. We build preparedness — not repair. Everything is product-first: clean execution, clear scope, and calm trust.</p>",
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 28,
+        "padding-block-end": 20
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "blocks": {
+        "page-content": {
+          "type": "page-content",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": ["page-content"],
+      "settings": {
+        "content_direction": "column",
+        "gap": 24,
+        "color_scheme": "",
+        "padding-block-start": 0,
+        "padding-block-end": 40
+      }
+    },
+    "compare": {
+      "type": "sanad-kit-compare",
+      "settings": {
+        "heading": "Three kits. Three intents.",
+        "subheading": "<p>We don’t sell chaos. We sell a clear system that belongs in every car.</p>",
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 32
+      },
+      "blocks": {
+        "e": {
+          "type": "kit",
+          "settings": {
+            "kicker": "Emergency",
+            "title": "Emergency Kit",
+            "lead": "<p>Preparedness for sudden moments — without pretending to be a service.</p>",
+            "bullets": "<ul><li>Safety + visibility essentials</li><li>Basic breakdown tools</li><li>Power and charging</li></ul>"
+          }
+        },
+        "c": {
+          "type": "kit",
+          "settings": {
+            "kicker": "Comfort",
+            "title": "Comfort Kit",
+            "lead": "<p>Relief for heat, traffic, long drives, and fatigue.</p>",
+            "bullets": "<ul><li>Seat/posture comfort</li><li>Cooling & convenience</li><li>Interior usability</li></ul>"
+          }
+        },
+        "m": {
+          "type": "kit",
+          "settings": {
+            "kicker": "Maintenance",
+            "title": "Maintenance Kit",
+            "lead": "<p>Preventive, light-upkeep tools to keep the car in shape.</p>",
+            "bullets": "<ul><li>Cleaning & care</li><li>Basic monitoring</li><li>Small preventive accessories</li></ul>"
+          }
+        }
+      },
+      "block_order": ["e", "c", "m"]
+    },
+    "trust": {
+      "type": "sanad-trust",
+      "settings": {
+        "heading": "Lebanon-first payments. Zero surprises.",
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 64
+      },
+      "blocks": {
+        "t1": { "type": "trust_item", "settings": { "title": "Cash on Delivery", "body": "<p>Pay on delivery.</p>" } },
+        "t2": { "type": "trust_item", "settings": { "title": "Whish Money", "body": "<p>Local payment option supported.</p>" } },
+        "t3": { "type": "trust_item", "settings": { "title": "Product company", "body": "<p>No towing, no dispatch, no services.</p>" } },
+        "t4": { "type": "trust_item", "settings": { "title": "Curated kits", "body": "<p>Only what belongs in the kit.</p>" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"]
+    }
+  },
+  "order": ["message", "main", "compare", "trust"]
+}

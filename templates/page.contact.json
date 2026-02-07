@@ -1,0 +1,100 @@
+{
+  "sections": {
+    "contact_info": {
+      "type": "sanad-contact-info",
+      "settings": {
+        "heading": "Contact",
+        "subtitle": "<p>Questions about what's inside a kit? Ask. We answer clearly. Products only — no roadside services.</p>",
+        "whatsapp": "+961 ...",
+        "whatsapp_note": "Fast replies during business hours.",
+        "email": "support@sanaddrive.com",
+        "email_note": "Detailed questions welcome.",
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 28,
+        "padding-block-end": 12
+      }
+    },
+    "form": {
+      "type": "section",
+      "blocks": {
+        "contact_form": {
+          "type": "contact-form",
+          "settings": {
+            "width": "custom",
+            "custom_width": 55,
+            "width_mobile": "custom",
+            "custom_width_mobile": 100,
+            "inherit_color_scheme": true,
+            "color_scheme": "scheme-1",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "submit-button": {
+              "type": "contact-form-submit-button",
+              "static": true,
+              "settings": {
+                "label": "Send",
+                "style_class": "button",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              }
+            }
+          }
+        }
+      },
+      "block_order": ["contact_form"],
+      "name": "Contact form",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 32,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 8,
+        "padding-block-end": 84
+      }
+    },
+    "trust": {
+      "type": "sanad-trust",
+      "blocks": {
+        "cod": {"type": "trust_item", "settings": {"title": "Cash on Delivery", "body": "<p>Pay on delivery — simple and familiar.</p>"}},
+        "whish": {"type": "trust_item", "settings": {"title": "Whish Money", "body": "<p>Local payments supported.</p>"}},
+        "scope": {"type": "trust_item", "settings": {"title": "Products only", "body": "<p>No towing. No dispatch. No roadside services.</p>"}},
+        "curated": {"type": "trust_item", "settings": {"title": "Curated kits", "body": "<p>Only what belongs in the kit.</p>"}}
+      },
+      "block_order": ["cod","whish","scope","curated"],
+      "settings": {
+        "heading": "What you can expect",
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 40
+      }
+    }
+  },
+  "order": ["contact_info","form","trust"]
+}

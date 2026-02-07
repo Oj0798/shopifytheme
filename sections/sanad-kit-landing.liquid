@@ -1,0 +1,202 @@
+{%- comment -%}
+  Sanad Drive – Kit Landing Header (Collection template)
+  - Brand-led intro for kit collections.
+  - Reinforces: preparedness (not repair), products only (no roadside services), Lebanon-first payments.
+  - Designed to avoid generic/pinterest vibes: minimal copy, strong hierarchy, clean spacing.
+{%- endcomment -%}
+
+<section
+  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }} spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+  data-testid="sanad-kit-landing-{{ section.id }}"
+>
+  <div class="sanad-kit-landing">
+    <div class="sanad-kit-landing__top">
+      <div class="sanad-kit-landing__kicker">{{ section.settings.kicker | escape }}</div>
+      <h1 class="sanad-kit-landing__title">
+        {%- if section.settings.title != blank -%}
+          {{ section.settings.title | escape }}
+        {%- else -%}
+          {{ collection.title | escape }}
+        {%- endif -%}
+      </h1>
+      {% if section.settings.subtitle != blank %}
+        <div class="sanad-kit-landing__subtitle">{{ section.settings.subtitle }}</div>
+      {% endif %}
+    </div>
+
+    <div class="sanad-kit-landing__grid">
+      <div class="sanad-kit-landing__panel">
+        {% if section.settings.bullets != blank %}
+          <div class="sanad-kit-landing__bullets">{{ section.settings.bullets }}</div>
+        {% endif %}
+      </div>
+
+      <div class="sanad-kit-landing__panel sanad-kit-landing__panel--trust">
+        <div class="sanad-kit-landing__trust">
+          <div class="sanad-kit-landing__trust-item"><strong>Cash on Delivery</strong> available in Lebanon.</div>
+          <div class="sanad-kit-landing__trust-item"><strong>Whish</strong> accepted.</div>
+          <div class="sanad-kit-landing__trust-item">Products only — <strong>no roadside services</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    {% if section.settings.disclaimer != blank %}
+      <div class="sanad-kit-landing__disclaimer">{{ section.settings.disclaimer }}</div>
+    {% endif %}
+  </div>
+</section>
+
+{% stylesheet %}
+  .sanad-kit-landing {
+    display: grid;
+    gap: var(--gap-xl);
+  }
+
+  .sanad-kit-landing__top {
+    display: grid;
+    gap: 10px;
+  }
+
+  .sanad-kit-landing__kicker {
+    font-size: .85rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(29,29,31,.65);
+  }
+
+  .sanad-kit-landing__title {
+    margin: 0;
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+  }
+
+  .sanad-kit-landing__subtitle {
+    max-width: 65ch;
+    color: rgba(29,29,31,.78);
+    line-height: 1.55;
+    font-size: 1.02rem;
+  }
+
+  .sanad-kit-landing__grid {
+    display: grid;
+    gap: var(--gap-lg);
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  @media (min-width: 990px) {
+    .sanad-kit-landing__grid {
+      grid-template-columns: 1.2fr .8fr;
+    }
+  }
+
+  .sanad-kit-landing__panel {
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 18px;
+    background: rgba(255,255,255,.55);
+    backdrop-filter: blur(10px);
+    padding: 18px;
+  }
+
+  .sanad-kit-landing__bullets {
+    color: rgba(29,29,31,.84);
+    line-height: 1.55;
+  }
+
+  .sanad-kit-landing__bullets ul {
+    margin: 0;
+    padding-left: 1.15rem;
+    display: grid;
+    gap: 8px;
+  }
+
+  .sanad-kit-landing__trust {
+    display: grid;
+    gap: 10px;
+    font-size: .95rem;
+    color: rgba(29,29,31,.82);
+  }
+
+  .sanad-kit-landing__disclaimer {
+    max-width: 80ch;
+    color: rgba(29,29,31,.66);
+    font-size: .92rem;
+    line-height: 1.55;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Sanad Kit Landing",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Sanad Drive"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title (optional)",
+      "info": "Leave blank to use the collection title."
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>Curated for clarity, trust, and Lebanese driving realities.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "bullets",
+      "label": "Bullets",
+      "default": "<ul><li>Built for self-preparedness — not professional repair.</li><li>One product per image. Clean, premium execution.</li><li>Designed to be kept in the car, ready when needed.</li></ul>"
+    },
+    {
+      "type": "richtext",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "<p>Sanad Drive is a product company. We do not provide towing, roadside assistance, or on-demand services.</p>"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 24
+    }
+  ]
+}
+{% endschema %}
