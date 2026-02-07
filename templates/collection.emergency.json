@@ -3,11 +3,11 @@
     "kit_header": {
       "type": "sanad-kit-landing",
       "settings": {
-        "kicker": "Sanad Drive Kit",
+        "kicker": "Sanad Drive",
         "title": "Emergency Kit",
-        "subtitle": "<p>Preparedness for the unexpected — products only. No roadside services.</p>",
-        "bullets": "<ul><li>Visibility + safety essentials</li><li>Power and charging coverage</li><li>Simple tools for self-preparedness</li></ul>",
-        "disclaimer": "<p>Designed for Lebanon-first realities: Cash on Delivery + Whish.</p>",
+        "subtitle": "<p>Be ready before the moment hits.</p>",
+        "bullets": "<ul><li>Visibility and safety essentials</li><li>Power coverage on the move</li><li>Smart tools for sudden stops</li></ul>",
+        "disclaimer": "<p>Built for Lebanon. Cash on Delivery and Whish available.</p>",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
         "padding-block-start": 40,
@@ -116,7 +116,11 @@
               }
             }
           },
-          "block_order": ["card-gallery", "product_title", "price"]
+          "block_order": [
+            "card-gallery",
+            "product_title",
+            "price"
+          ]
         }
       },
       "settings": {
@@ -135,5 +139,8 @@
       }
     }
   },
-  "order": ["kit_header", "main"]
+  "order": [
+    "kit_header",
+    "main"
+  ]
 }

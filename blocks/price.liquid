@@ -69,11 +69,6 @@
     </div>
   {% endif %}
 
-  {%- comment -%}
-    Sanad Drive hardening (Lebanon-first):
-    Hide Shopify payment terms/installments UI. It can surface confusing
-    recurring/deferred purchase wording and harms trust.
-  {%- endcomment -%}
 </product-price>
 
 {% # theme-check-disable %}
@@ -81,9 +76,6 @@
   .tax-note:empty {
     display: none;
   }
-
-  /* Installments / Shop Pay payment terms intentionally disabled for Sanad Drive.
-     These components inject recurring/deferred language that harms trust for COD/Whish flows. */
 
   /* Volume pricing note should match unit-price styling (small, grey text) */
   product-price .volume-pricing-note,

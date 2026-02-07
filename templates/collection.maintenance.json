@@ -3,11 +3,11 @@
     "kit_header": {
       "type": "sanad-kit-landing",
       "settings": {
-        "kicker": "Sanad Drive Kit",
+        "kicker": "Sanad Drive",
         "title": "Maintenance Kit",
-        "subtitle": "<p>Preventive, light-upkeep essentials — care before problems start.</p>",
-        "bullets": "<ul><li>Cleaning + care basics</li><li>Simple monitoring tools</li><li>Preventive accessories (no repairs)</li></ul>",
-        "disclaimer": "<p>Lebanon-first: Cash on Delivery + Whish. This is preparedness, not repair services.</p>",
+        "subtitle": "<p>Stay clean, tuned, and road-ready.</p>",
+        "bullets": "<ul><li>Cleaning and care basics</li><li>Quick-check maintenance tools</li><li>Daily upkeep essentials</li></ul>",
+        "disclaimer": "<p>Built for Lebanon. Cash on Delivery and Whish available.</p>",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
         "padding-block-start": 40,
@@ -116,7 +116,11 @@
               }
             }
           },
-          "block_order": ["card-gallery", "product_title", "price"]
+          "block_order": [
+            "card-gallery",
+            "product_title",
+            "price"
+          ]
         }
       },
       "settings": {
@@ -135,5 +139,8 @@
       }
     }
   },
-  "order": ["kit_header", "main"]
+  "order": [
+    "kit_header",
+    "main"
+  ]
 }

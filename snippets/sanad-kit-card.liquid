@@ -8,36 +8,36 @@
 {%- endcomment -%}
 
 {%- liquid
-  # Resolve collection.
+  # Resolve collection + URL.
   # Primary: collection picker in section settings.
-  # Fallback: if store has the three canonical kit collections by handle,
-  #           cards become clickable without manual configuration.
+  # Fallback URL: canonical handle path for each kit.
   assign resolved_collection = kit_collection
+  assign fallback_url = ''
 
-  if resolved_collection == blank
-    assign fallback_handle = ''
-    case title
-      when 'Emergency Kit'
-        assign fallback_handle = 'emergency-kit'
-      when 'Comfort Kit'
-        assign fallback_handle = 'comfort-kit'
-      when 'Maintenance Kit'
-        assign fallback_handle = 'maintenance-kit'
-    endcase
+  case title
+    when 'Emergency Kit'
+      assign fallback_url = '/collections/emergency-kit'
+    when 'Comfort Kit'
+      assign fallback_url = '/collections/comfort-kit'
+    when 'Maintenance Kit'
+      assign fallback_url = '/collections/maintenance-kit'
+  endcase
 
-    if fallback_handle != blank and collections[fallback_handle] != blank
+  if resolved_collection == blank and fallback_url != blank
+    assign fallback_handle = fallback_url | split: '/' | last
+    if collections[fallback_handle] != blank
       assign resolved_collection = collections[fallback_handle]
     endif
   endif
 
-  assign has_collection = false
+  assign link_url = fallback_url
   if resolved_collection != blank
-    assign has_collection = true
+    assign link_url = resolved_collection.url
   endif
 
-  assign link_url = ''
-  if has_collection
-    assign link_url = resolved_collection.url
+  assign has_collection = false
+  if link_url != blank
+    assign has_collection = true
   endif
 
   assign resolved_image = kit_image
