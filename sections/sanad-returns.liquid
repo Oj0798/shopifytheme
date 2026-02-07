@@ -1,0 +1,136 @@
+<section class="section section--page-width color-{{ section.settings.color_scheme }} spacing-style" style="{% render 'spacing-style', settings: section.settings %}">
+  <div class="sanad-returns">
+    <header class="sanad-returns__header">
+      <h1>Return Policy</h1>
+      <p>Simple, clear, and fair.</p>
+    </header>
+
+    <section class="sanad-returns__group">
+      <h2>Returns window</h2>
+      <ul>
+        <li>Returns are accepted within 7 days of delivery.</li>
+      </ul>
+    </section>
+
+    <section class="sanad-returns__group">
+      <h2>Condition requirements</h2>
+      <ul>
+        <li>Items must be unused and in original condition.</li>
+        <li>Original packaging is required.</li>
+        <li>Proof of purchase is required.</li>
+      </ul>
+    </section>
+
+    <section class="sanad-returns__group">
+      <h2>Non-returnable items</h2>
+      <ul>
+        <li>Used or opened items.</li>
+        <li>Consumable products once opened.</li>
+      </ul>
+    </section>
+
+    <section class="sanad-returns__group">
+      <h2>Damaged or defective on arrival</h2>
+      <ul>
+        <li>Contact us within 48 hours of delivery.</li>
+        <li>Share clear photos and your order details.</li>
+        <li>After review, we will arrange a replacement or refund.</li>
+      </ul>
+    </section>
+
+    <section class="sanad-returns__group">
+      <h2>Refund handling</h2>
+      <ul>
+        <li>Cash on Delivery orders are refunded through an approved local handover method.</li>
+        <li>Whish Money orders are refunded back through Whish Money.</li>
+      </ul>
+    </section>
+
+    <section class="sanad-returns__group">
+      <h2>Shipping fees</h2>
+      <ul>
+        <li>Shipping fees may be non-refundable.</li>
+        <li>If the item arrived defective, related shipping charges are covered by us.</li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+{% stylesheet %}
+  .sanad-returns {
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    gap: 16px;
+  }
+
+  .sanad-returns__header h1 {
+    margin: 0 0 4px;
+    font-size: clamp(1.4rem, 2.8vw, 2rem);
+    letter-spacing: -0.02em;
+  }
+
+  .sanad-returns__header p {
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  .sanad-returns__group {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .sanad-returns__group h2 {
+    margin: 0 0 8px;
+    font-size: 1rem;
+  }
+
+  .sanad-returns__group ul {
+    margin: 0;
+    padding-inline-start: 20px;
+    display: grid;
+    gap: 6px;
+  }
+
+  .sanad-returns__group li {
+    line-height: 1.45;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Sanad Returns",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 52
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sanad Returns"
+    }
+  ]
+}
+{% endschema %}
