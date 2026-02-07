@@ -1,0 +1,157 @@
+<section class="section section--page-width color-{{ section.settings.color_scheme }} spacing-style" style="{% render 'spacing-style', settings: section.settings %}">
+  <div class="sanad-about">
+    <header class="sanad-about__hero">
+      <p class="sanad-about__eyebrow">About Sanad Drive</p>
+      <h1 class="sanad-about__title">Prepared for every drive.</h1>
+      <p class="sanad-about__subline">A premium essentials brand for calm, confident daily mobility.</p>
+    </header>
+
+    <div class="sanad-about__story">
+      <p>Sanad Drive builds practical car essentials with clean standards and reliable quality.</p>
+      <p>We design each kit to feel simple to use, comfortable to keep, and ready when needed.</p>
+      <p>Our focus is consistency: thoughtful products, clear promises, and local payment convenience.</p>
+    </div>
+
+    <div class="sanad-about__values" role="list" aria-label="Core values">
+      <div class="sanad-about__value" role="listitem">
+        <h2>Preparedness</h2>
+        <p>Ready tools for real moments on the road.</p>
+      </div>
+      <div class="sanad-about__value" role="listitem">
+        <h2>Comfort</h2>
+        <p>Useful details that make driving feel lighter.</p>
+      </div>
+      <div class="sanad-about__value" role="listitem">
+        <h2>Care</h2>
+        <p>Thoughtful quality in every product choice.</p>
+      </div>
+    </div>
+
+    <div class="sanad-about__trust" role="list" aria-label="Trust highlights">
+      <div class="sanad-about__trust-item" role="listitem">Cash on Delivery</div>
+      <div class="sanad-about__trust-item" role="listitem">Whish Money</div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .sanad-about {
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    gap: 22px;
+  }
+
+  .sanad-about__hero,
+  .sanad-about__story {
+    display: grid;
+    gap: 10px;
+  }
+
+  .sanad-about__eyebrow {
+    margin: 0;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.72;
+  }
+
+  .sanad-about__title {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    letter-spacing: -0.02em;
+  }
+
+  .sanad-about__subline,
+  .sanad-about__story p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 70ch;
+  }
+
+  .sanad-about__values {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  @media (min-width: 750px) {
+    .sanad-about__values {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .sanad-about__value {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .sanad-about__value h2 {
+    margin: 0 0 4px;
+    font-size: 1rem;
+  }
+
+  .sanad-about__value p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+
+  .sanad-about__trust {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  @media (min-width: 750px) {
+    .sanad-about__trust {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .sanad-about__trust-item {
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: rgba(0, 0, 0, 0.04);
+    font-weight: 600;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Sanad About",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 44
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sanad About"
+    }
+  ]
+}
+{% endschema %}
