@@ -124,8 +124,8 @@
         "note": "<p>Cash on Delivery and Whish, across Lebanon.</p>",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
-        "padding-block-start": 10,
-        "padding-block-end": 10
+        "padding-block-start": 12,
+        "padding-block-end": 12
       }
     },
     "sanad_message": {
@@ -136,8 +136,8 @@
         "body": "<p>Premium kits that match real road pressure.</p>",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
-        "padding-block-start": 22,
-        "padding-block-end": 10
+        "padding-block-start": 24,
+        "padding-block-end": 12
       }
     },
     "sanad_compare": {
@@ -148,7 +148,7 @@
           "settings": {
             "kicker": "Emergency",
             "title": "Emergency Kit",
-            "lead": "<p>Prepared for sudden moments — practical, quiet, reliable.</p>",
+            "lead": "<p>Prepared for sudden moments \u2014 practical, quiet, reliable.</p>",
             "bullets": "<ul><li>Safety + visibility</li><li>Power essentials</li><li>Self-preparedness tools</li></ul>"
           }
         },
@@ -166,7 +166,7 @@
           "settings": {
             "kicker": "Maintenance",
             "title": "Maintenance Kit",
-            "lead": "<p>Prevent problems — light upkeep, clean care, better habits.</p>",
+            "lead": "<p>Prevent problems \u2014 light upkeep, clean care, better habits.</p>",
             "bullets": "<ul><li>Cleaning + care</li><li>Basic monitoring</li><li>Preventive essentials</li></ul>"
           }
         }
@@ -178,11 +178,11 @@
       ],
       "settings": {
         "heading": "Pick the kit that matches your intent.",
-        "subheading": "<p>Three kits only. Each one has a clear purpose — so you don’t overbuy, underbuy, or carry junk.</p>",
+        "subheading": "<p>Three kits only. Each one has a clear purpose \u2014 so you don\u2019t overbuy, underbuy, or carry junk.</p>",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
         "padding-block-start": 0,
-        "padding-block-end": 18
+        "padding-block-end": 20
       }
     },
     "sanad_trust": {
@@ -227,8 +227,8 @@
         "heading": "Trusted at checkout. Trusted on the road.",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
-        "padding-block-start": 10,
-        "padding-block-end": 50
+        "padding-block-start": 12,
+        "padding-block-end": 48
       }
     }
   },
