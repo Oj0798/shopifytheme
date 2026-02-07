@@ -1,0 +1,91 @@
+{%- comment -%}
+  Renders one kit card.
+  Inputs:
+    - title (string)
+    - description (richtext)
+    - kit_image (image)
+    - kit_collection (collection)
+{%- endcomment -%}
+
+{%- liquid
+  # Resolve collection.
+  # Primary: collection picker in section settings.
+  # Fallback: if store has the three canonical kit collections by handle,
+  #           cards become clickable without manual configuration.
+  assign resolved_collection = kit_collection
+
+  if resolved_collection == blank
+    assign fallback_handle = ''
+    case title
+      when 'Emergency Kit'
+        assign fallback_handle = 'emergency-kit'
+      when 'Comfort Kit'
+        assign fallback_handle = 'comfort-kit'
+      when 'Maintenance Kit'
+        assign fallback_handle = 'maintenance-kit'
+    endcase
+
+    if fallback_handle != blank and collections[fallback_handle] != blank
+      assign resolved_collection = collections[fallback_handle]
+    endif
+  endif
+
+  assign has_collection = false
+  if resolved_collection != blank
+    assign has_collection = true
+  endif
+
+  assign link_url = ''
+  if has_collection
+    assign link_url = resolved_collection.url
+  endif
+
+  assign resolved_image = kit_image
+  if resolved_image == blank and has_collection and resolved_collection.image != blank
+    assign resolved_image = resolved_collection.image
+  endif
+-%}
+
+<article class="sanad-kit" {% unless has_collection %}aria-disabled="true"{% endunless %}>
+  {% if has_collection %}
+    <a class="sanad-kit__link" href="{{ link_url }}">
+  {% else %}
+    <div class="sanad-kit__link sanad-kit__link--disabled" role="group">
+  {% endif %}
+
+    <div class="sanad-kit__media" aria-hidden="true">
+      {% if resolved_image != blank %}
+        {{ resolved_image | image_url: width: 900 | image_tag: loading: 'lazy', class: 'sanad-kit__img', alt: title }}
+      {% else %}
+        <div class="sanad-kit__placeholder"></div>
+      {% endif %}
+    </div>
+
+    <div class="sanad-kit__content">
+      <div class="sanad-kit__top">
+        <div class="sanad-kit__pill">Kit</div>
+        {% if has_collection %}
+          <div class="sanad-kit__arrow" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 7H17V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        {% endif %}
+      </div>
+
+      <h3 class="sanad-kit__title">{{ title | escape }}</h3>
+      {% if description != blank %}
+        <div class="sanad-kit__desc">{{ description }}</div>
+      {% endif %}
+      {% if has_collection %}
+        <div class="sanad-kit__meta">Explore</div>
+      {% endif %}
+    </div>
+
+  {% if has_collection %}
+    </a>
+  {% else %}
+    </div>
+  {% endif %}
+</article>

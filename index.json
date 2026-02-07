@@ -1,0 +1,242 @@
+{
+  "sections": {
+    "hero_p9CmMG": {
+      "type": "hero",
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 24,
+        "section_width": "full-width",
+        "section_height": "full-screen",
+        "section_height_custom": 5,
+        "color_scheme": "scheme-1",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 24,
+        "padding-block-end": 24
+      },
+      "blocks": {
+        "hero_headline": {
+          "type": "jumbo-text",
+          "settings": {
+            "text": "<h1>Prepared for Lebanon. Calm by design.</h1>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h1",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "tight",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "hero_sub": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Curated car kits \u2014 Emergency, Comfort, Maintenance. Products only. No roadside services.</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-primary--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "hero_btn": {
+          "type": "button",
+          "settings": {
+            "label": "Explore kits",
+            "link": "#kits",
+            "style_class": "button",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fit-content",
+            "custom_width_mobile": 100,
+            "open_in_new_tab": false
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "hero_headline",
+        "hero_sub",
+        "hero_btn"
+      ]
+    },
+    "sanad_kits_fa260d": {
+      "type": "sanad-kits",
+      "name": "Kits",
+      "settings": {
+        "heading": "Three kits. No clutter.",
+        "subheading": "<p>Preparedness, comfort, and maintenance \u2014 built for Lebanese driving realities.</p>",
+        "emergency_collection": "",
+        "emergency_image": "",
+        "emergency_description": "<p>Be prepared for the unexpected. Products only \u2014 not roadside assistance.</p>",
+        "comfort_collection": "",
+        "comfort_image": "",
+        "comfort_description": "<p>Relief for long drives, heat, traffic, and fatigue. Calm execution.</p>",
+        "maintenance_collection": "",
+        "maintenance_image": "",
+        "maintenance_description": "<p>Preventive, light-upkeep tools for everyday car care. No repairs. No drama.</p>",
+        "note": "<p>Cash on Delivery and Whish supported in Lebanon.</p>",
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 10,
+        "padding-block-end": 10
+      }
+    },
+    "sanad_message": {
+      "type": "sanad-message",
+      "settings": {
+        "kicker": "Sanad Drive",
+        "heading": "Preparedness, not repair.",
+        "body": "<p>We build three complete kits for real driving in Lebanon \u2014 clean, calm, and product-first. No clutter. No drama.</p>",
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 22,
+        "padding-block-end": 10
+      }
+    },
+    "sanad_compare": {
+      "type": "sanad-kit-compare",
+      "blocks": {
+        "k1": {
+          "type": "kit",
+          "settings": {
+            "kicker": "Emergency",
+            "title": "Emergency Kit",
+            "lead": "<p>Prepared for sudden moments \u2014 practical, quiet, reliable.</p>",
+            "bullets": "<ul><li>Safety + visibility</li><li>Power essentials</li><li>Self-preparedness tools</li></ul>"
+          }
+        },
+        "k2": {
+          "type": "kit",
+          "settings": {
+            "kicker": "Comfort",
+            "title": "Comfort Kit",
+            "lead": "<p>Relief for heat, traffic, fatigue, and long drives.</p>",
+            "bullets": "<ul><li>Seat + posture comfort</li><li>Cooling / convenience</li><li>Interior usability</li></ul>"
+          }
+        },
+        "k3": {
+          "type": "kit",
+          "settings": {
+            "kicker": "Maintenance",
+            "title": "Maintenance Kit",
+            "lead": "<p>Prevent problems \u2014 light upkeep, clean care, better habits.</p>",
+            "bullets": "<ul><li>Cleaning + care</li><li>Basic monitoring</li><li>Preventive essentials</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "k1",
+        "k2",
+        "k3"
+      ],
+      "settings": {
+        "heading": "Pick the kit that matches your intent.",
+        "subheading": "<p>Three kits only. Each one has a clear purpose \u2014 so you don\u2019t overbuy, underbuy, or carry junk.</p>",
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 18
+      }
+    },
+    "sanad_trust": {
+      "type": "sanad-trust",
+      "blocks": {
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Cash on Delivery",
+            "body": "<p>Pay on delivery \u2014 simple and familiar.</p>"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Whish Money",
+            "body": "<p>Fast local payments supported.</p>"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Products only",
+            "body": "<p>No towing. No dispatch. No roadside assistance.</p>"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "title": "Curated, not random",
+            "body": "<p>Only what belongs in the kit. No accessory chaos.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {
+        "heading": "Built for Lebanon. Built on trust.",
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 10,
+        "padding-block-end": 50
+      }
+    }
+  },
+  "order": [
+    "hero_p9CmMG",
+    "sanad_message",
+    "sanad_kits_fa260d",
+    "sanad_compare",
+    "sanad_trust"
+  ]
+}
