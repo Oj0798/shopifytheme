@@ -111,6 +111,13 @@
   assign mobile_widths = '416, 600, 800, 1200, 1600'
   assign mobile_widths_array = mobile_widths | split: ', '
 
+  assign mobile_kit_image = blank
+  if media_1_mobile == 'image' and section.settings.image_1_mobile != blank
+    assign mobile_kit_image = section.settings.image_1_mobile
+  elsif media_1 == 'image' and section.settings.image_1 != blank
+    assign mobile_kit_image = section.settings.image_1
+  endif
+
   assign fetch_priority = 'auto'
 
   if section.index == 1
@@ -532,6 +539,20 @@
     >
       {% content_for 'blocks' %}
     </div>
+    {% if mobile_kit_image != blank %}
+      {{
+        mobile_kit_image
+        | image_url: width: 1200
+        | image_tag:
+          width: mobile_kit_image.width,
+          widths: mobile_widths,
+          height: mobile_kit_image.height,
+          alt: mobile_kit_image.alt,
+          class: 'hero__mobile-kit-image',
+          sizes: '(max-width: 639px) 80vw, 0px',
+          loading: 'lazy'
+      }}
+    {% endif %}
   </div>
 </div>
 
@@ -752,6 +773,52 @@
         right: 0;
         left: auto;
       }
+    }
+  }
+
+  .hero__mobile-kit-image {
+    display: none;
+  }
+
+  @media screen and (max-width: 639px) {
+    .hero__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #f8f4ec;
+      overflow: hidden;
+    }
+
+    .hero__media-wrapper {
+      display: none;
+    }
+
+    .hero__content-wrapper {
+      position: relative;
+      inset: auto;
+      width: 100%;
+      order: 1;
+    }
+
+    .hero__content-wrapper h1 {
+      font-size: clamp(2rem, 8vw, 2.5rem);
+      line-height: 1.15;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+
+    .hero__content-wrapper :is(.button, .button-secondary) {
+      margin-top: 1rem;
+    }
+
+    .hero__mobile-kit-image {
+      display: block;
+      max-width: 80%;
+      height: auto;
+      object-fit: contain;
+      align-self: flex-end;
+      order: 2;
+      margin-top: auto;
     }
   }
 {% endstylesheet %}
