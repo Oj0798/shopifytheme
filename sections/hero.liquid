@@ -119,9 +119,11 @@
   endif
 
   assign fetch_priority = 'auto'
+  assign image_loading = 'lazy'
 
   if section.index == 1
     assign fetch_priority = 'high'
+    assign image_loading = 'eager'
   endif
 %}
 
@@ -151,10 +153,11 @@
           widths: widths,
           height: section.settings.image_1.height,
           alt: section.settings.image_1.alt,
-          class: 'hero__image',
-          sizes: sizes,
-          fetchpriority: fetch_priority,
-          data-testid: 'hero-desktop-image-1'
+        class: 'hero__image',
+        sizes: sizes,
+        loading: image_loading,
+        fetchpriority: fetch_priority,
+        data-testid: 'hero-desktop-image-1'
       }}
     </picture>
   {%- elsif media_1 == 'image' -%}
@@ -168,6 +171,7 @@
         alt: section.settings.image_1.alt,
         class: media_image_desktop_class,
         sizes: sizes,
+        loading: image_loading,
         fetchpriority: fetch_priority,
         data-testid: 'hero-desktop-image-1'
     }}
@@ -202,6 +206,7 @@
           alt: section.settings.image_1_mobile.alt,
           class: 'hero__image hero__image--mobile',
           sizes: sizes_mobile,
+          loading: image_loading,
           fetchpriority: fetch_priority,
           data-testid: 'hero-mobile-image-1'
       }}
@@ -253,6 +258,7 @@
           alt: section.settings.image_2.alt,
           class: 'hero__image',
           sizes: sizes,
+          loading: image_loading,
           fetchpriority: fetch_priority,
           data-testid: 'hero-desktop-image-2'
       }}
@@ -268,6 +274,7 @@
         alt: section.settings.image_2.alt,
         class: media_image_desktop_class,
         sizes: sizes,
+        loading: image_loading,
         fetchpriority: fetch_priority,
         data-testid: 'hero-desktop-image-2'
     }}
@@ -302,6 +309,7 @@
           alt: section.settings.image_2_mobile.alt,
           class: 'hero__image hero__image--mobile',
           sizes: sizes_mobile,
+          loading: image_loading,
           fetchpriority: fetch_priority,
           data-testid: 'hero-mobile-image-2'
       }}
@@ -540,18 +548,21 @@
       {% content_for 'blocks' %}
     </div>
     {% if mobile_kit_image != blank %}
-      {{
-        mobile_kit_image
-        | image_url: width: 1200
-        | image_tag:
-          width: mobile_kit_image.width,
-          widths: mobile_widths,
-          height: mobile_kit_image.height,
-          alt: mobile_kit_image.alt,
-          class: 'hero__mobile-kit-image',
-          sizes: '(max-width: 639px) 80vw, 0px',
-          loading: 'lazy'
-      }}
+      <div class="hero__mobile-media-slot" data-testid="hero-mobile-media-slot">
+        {{
+          mobile_kit_image
+          | image_url: width: 1200
+          | image_tag:
+            width: mobile_kit_image.width,
+            widths: mobile_widths,
+            height: mobile_kit_image.height,
+            alt: mobile_kit_image.alt,
+            class: 'hero__mobile-kit-image',
+            sizes: '(max-width: 749px) 92vw, 0px',
+            loading: image_loading,
+            fetchpriority: fetch_priority
+        }}
+      </div>
     {% endif %}
   </div>
 </div>
@@ -776,17 +787,20 @@
     }
   }
 
+  .hero__mobile-media-slot,
   .hero__mobile-kit-image {
     display: none;
   }
 
-  @media screen and (max-width: 639px) {
+  @media screen and (max-width: 749px) {
     .hero__container {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       background: #f8f4ec;
       overflow: hidden;
+      padding-inline: clamp(1rem, 4vw, 1.5rem);
+      gap: 1rem;
     }
 
     .hero__media-wrapper {
@@ -798,27 +812,59 @@
       inset: auto;
       width: 100%;
       order: 1;
+      flex: 0 0 auto;
     }
 
-    .hero__content-wrapper h1 {
-      font-size: clamp(2rem, 8vw, 2.5rem);
-      line-height: 1.15;
+    .hero__content-wrapper :is(h1, .h1, jumbo-text, .jumbo-text-line) {
+      max-width: min(14ch, 100%);
+      line-height: clamp(1.05, 3.6vw, 1.12);
+      overflow-wrap: anywhere;
       word-break: normal;
-      overflow-wrap: normal;
+      white-space: normal;
     }
+
+    .hero__content-wrapper :is(h1, .h1) {
+      font-size: clamp(30px, 8.5vw, 46px);
+    }
+
+    .hero__content-wrapper .jumbo-text-line {
+      display: block;
+      white-space: normal;
+      font-size: clamp(30px, 8.5vw, 46px);
+    }
+
+    .hero__content-wrapper jumbo-text {
+      transition: none;
+    }
+
 
     .hero__content-wrapper :is(.button, .button-secondary) {
       margin-top: 1rem;
     }
 
+    .hero__mobile-media-slot {
+      display: block;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      max-height: clamp(220px, 40vh, 360px);
+      min-height: 220px;
+      overflow: hidden;
+      order: 2;
+      flex: 0 0 auto;
+    }
+
     .hero__mobile-kit-image {
       display: block;
-      max-width: 80%;
-      height: auto;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      align-self: flex-end;
-      order: 2;
-      margin-top: auto;
+      object-position: 100% 100%;
+      margin-top: 0;
+    }
+
+    .hero[data-blur-shadow='true'] .hero__blurred-image--mobile {
+      display: none;
     }
   }
 {% endstylesheet %}
