@@ -1,7 +1,6 @@
 {%- comment -%}
   Sanad Kit Compare
-  - A signature component: clear differentiation without product lists.
-  - Always three columns, aligned to the 3-kit architecture.
+  - Compact one-row comparison strip with three kit columns.
 {%- endcomment -%}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
@@ -11,30 +10,13 @@
   style="{% render 'spacing-style', settings: section.settings %}"
   data-testid="sanad-kit-compare-{{ section.id }}"
 >
-  <div class="sanad-compare">
-    {% if section.settings.heading != blank %}
-      <header class="sanad-compare__header">
-        <h2 class="sanad-compare__title">{{ section.settings.heading | escape }}</h2>
-        {% if section.settings.subheading != blank %}
-          <p class="sanad-compare__subtitle">{{ section.settings.subheading }}</p>
-        {% endif %}
-      </header>
-    {% endif %}
-
-    <div class="sanad-compare__grid">
-      {% for block in section.blocks %}
-        <article class="sanad-compare__card">
-          <div class="sanad-compare__kicker">{{ block.settings.kicker | escape }}</div>
-          <h3 class="sanad-compare__card-title">{{ block.settings.title | escape }}</h3>
-          {% if block.settings.lead != blank %}
-            <div class="sanad-compare__lead">{{ block.settings.lead }}</div>
-          {% endif %}
-          {% if block.settings.bullets != blank %}
-            <div class="sanad-compare__bullets rte">{{ block.settings.bullets }}</div>
-          {% endif %}
-        </article>
-      {% endfor %}
-    </div>
+  <div class="sanad-compare" role="list" aria-label="Kit comparison strip">
+    {% for block in section.blocks %}
+      <article class="sanad-compare__card" role="listitem" {{ block.shopify_attributes }}>
+        <div class="sanad-compare__kicker">{{ block.settings.kicker | escape }}</div>
+        <p class="sanad-compare__card-title">{{ block.settings.title | escape }}</p>
+      </article>
+    {% endfor %}
   </div>
 </section>
 
@@ -43,80 +25,36 @@
     max-width: 1140px;
     margin: 0 auto;
     display: grid;
-    gap: 18px;
-  }
-
-  .sanad-compare__header {
-    display: grid;
-    gap: 8px;
-  }
-
-  .sanad-compare__title {
-    margin: 0;
-    font-size: clamp(1.2rem, 2vw, 1.55rem);
-    letter-spacing: -0.02em;
-  }
-
-  .sanad-compare__subtitle {
-    margin: 0;
-    max-width: 70ch;
-    color: rgba(29, 29, 31, 0.78);
-    line-height: 1.5;
-  }
-
-  .sanad-compare__grid {
-    display: grid;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
   }
 
   @media (min-width: 900px) {
-    .sanad-compare__grid {
+    .sanad-compare {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
   .sanad-compare__card {
     border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 22px;
-    padding: 18px;
+    border-radius: 16px;
+    padding: 14px 16px;
     background: rgba(255, 255, 255, 0.9);
   }
 
   .sanad-compare__kicker {
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(29, 29, 31, 0.55);
-    margin-bottom: 10px;
+    color: rgba(29, 29, 31, 0.6);
+    margin-bottom: 6px;
   }
 
   .sanad-compare__card-title {
     margin: 0;
-    font-size: 1.1rem;
-    letter-spacing: -0.015em;
-  }
-
-  .sanad-compare__lead {
-    margin-top: 8px;
-    color: rgba(29, 29, 31, 0.78);
-    line-height: 1.5;
-  }
-
-  .sanad-compare__bullets {
-    margin-top: 12px;
-    color: rgba(29, 29, 31, 0.76);
     font-size: 0.95rem;
-    line-height: 1.55;
-  }
-
-  .sanad-compare__bullets ul {
-    margin: 0;
-    padding-left: 18px;
-  }
-
-  .sanad-compare__bullets li {
-    margin: 6px 0;
+    color: rgba(29, 29, 31, 0.9);
+    line-height: 1.35;
   }
 {% endstylesheet %}
 

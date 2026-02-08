@@ -63,7 +63,7 @@
 
     <div class="sanad-kit__content">
       <div class="sanad-kit__top">
-        <div class="sanad-kit__pill">Kit</div>
+        <span class="visually-hidden">Kit</span>
         {% if has_collection %}
           <div class="sanad-kit__arrow" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -77,9 +77,6 @@
       <h3 class="sanad-kit__title">{{ title | escape }}</h3>
       {% if description != blank %}
         <div class="sanad-kit__desc">{{ description }}</div>
-      {% endif %}
-      {% if has_collection %}
-        <div class="sanad-kit__meta">View kit</div>
       {% endif %}
     </div>
 
