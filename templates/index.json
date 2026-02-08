@@ -1,62 +1,28 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_p9CmMG": {
       "type": "hero",
-      "name": "t:names.hero",
-      "settings": {
-        "media_type_1": "image",
-        "image_1": "",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 24,
-        "section_width": "full-width",
-        "section_height": "full-screen",
-        "section_height_custom": 5,
-        "color_scheme": "scheme-1",
-        "toggle_overlay": true,
-        "overlay_color": "#00000026",
-        "overlay_style": "gradient",
-        "gradient_direction": "to top",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 24,
-        "padding-block-end": 24
-      },
       "blocks": {
         "hero_headline": {
           "type": "jumbo-text",
           "settings": {
             "text": "<h1>Built for Lebanese roads.</h1>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "left",
-            "type_preset": "h1",
             "font": "var(--font-primary--family)",
-            "font_size": "",
+            "alignment": "left",
             "line_height": "tight",
             "letter_spacing": "normal",
             "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "text_effect": "none",
+            "animation_repeat": false
           },
           "blocks": {}
         },
@@ -90,12 +56,12 @@
           "settings": {
             "label": "View kits",
             "link": "#kits",
+            "open_in_new_tab": false,
             "style_class": "button",
             "width": "fit-content",
             "custom_width": 100,
             "width_mobile": "fit-content",
-            "custom_width_mobile": 100,
-            "open_in_new_tab": false
+            "custom_width_mobile": 100
           },
           "blocks": {}
         }
@@ -104,7 +70,39 @@
         "hero_headline",
         "hero_sub",
         "hero_btn"
-      ]
+      ],
+      "name": "t:names.hero",
+      "settings": {
+        "media_type_1": "image",
+        "image_1": "shopify://shop_images/ChatGPT_Image_Feb_8_2026_01_25_31_PM.png",
+        "media_type_2": "image",
+        "stack_media_on_mobile": false,
+        "custom_mobile_media": false,
+        "media_type_1_mobile": "image",
+        "media_type_2_mobile": "image",
+        "link": "",
+        "open_in_new_tab": false,
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 24,
+        "section_width": "full-width",
+        "section_height": "full-screen",
+        "section_height_custom": 5,
+        "color_scheme": "scheme-1",
+        "toggle_overlay": true,
+        "overlay_color": "#00000026",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
+        "padding-block-start": 24,
+        "padding-block-end": 24
+      }
     },
     "sanad_kits_fa260d": {
       "type": "sanad-kits",
@@ -113,13 +111,10 @@
         "heading": "Three kits. Zero guesswork.",
         "subheading": "<p>Emergency, Comfort, and Maintenance.</p>",
         "emergency_collection": "",
-        "emergency_image": "",
         "emergency_description": "<p>Fast confidence when things go wrong.</p>",
         "comfort_collection": "",
-        "comfort_image": "",
         "comfort_description": "<p>Calmer driving in heat and traffic.</p>",
         "maintenance_collection": "",
-        "maintenance_image": "",
         "maintenance_description": "<p>Keep the car clean, ready, and steady.</p>",
         "note": "<p>Cash on Delivery and Whish Money available across Lebanon.</p>",
         "section_width": "page-width",
