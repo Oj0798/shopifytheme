@@ -19,7 +19,7 @@
       <header class="sanad-kits__header">
         <h2 class="sanad-kits__title">{{ section.settings.heading | escape }}</h2>
         {% if section.settings.subheading != blank %}
-          <p class="sanad-kits__subtitle">{{ section.settings.subheading }}</p>
+          <div class="sanad-kits__subtitle">{{ section.settings.subheading }}</div>
         {% endif %}
       </header>
     {% endif %}
@@ -143,7 +143,9 @@
   .sanad-kit__placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,0,.03), rgba(0,0,0,.06));
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 0;
+    background: rgba(246, 247, 248, 1);
   }
 
   .sanad-kit__content {
@@ -158,17 +160,6 @@
     justify-content: space-between;
   }
 
-  .sanad-kit__pill {
-    font-size: .72rem;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: rgba(29,29,31,.65);
-    border: 1px solid rgba(0,0,0,.08);
-    border-radius: 999px;
-    padding: 6px 10px;
-    line-height: 1;
-    background: rgba(255,255,255,.75);
-  }
 
   .sanad-kit__arrow {
     color: rgba(29,29,31,.65);
@@ -186,11 +177,6 @@
     font-size: .95rem;
   }
 
-  .sanad-kit__meta {
-    margin-top: 2px;
-    font-size: .85rem;
-    color: rgba(29,29,31,.72);
-  }
 
   @media (hover: hover) {
     .sanad-kit__link:not(.sanad-kit__link--disabled):hover .sanad-kit {

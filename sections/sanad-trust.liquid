@@ -1,7 +1,6 @@
 {%- comment -%}
   Sanad Trust
-  - Lebanon-first payment reassurance
-  - Explicitly states product-only (no roadside services)
+  - Compact Lebanon payment reassurance strip.
 {%- endcomment -%}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
@@ -13,19 +12,21 @@
 >
   <div class="sanad-trust">
     {% if section.settings.heading != blank %}
-      <h2 class="sanad-trust__title">{{ section.settings.heading | escape }}</h2>
+      <p class="sanad-trust__title">{{ section.settings.heading | escape }}</p>
     {% endif %}
 
-    <div class="sanad-trust__grid" role="list">
-      {% for block in section.blocks %}
-        <div class="sanad-trust__item" role="listitem">
-          <div class="sanad-trust__item-title">{{ block.settings.title | escape }}</div>
-          {% if block.settings.body != blank %}
-            <div class="sanad-trust__item-body">{{ block.settings.body }}</div>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
+    {% if section.blocks.size > 0 %}
+      <div class="sanad-trust__grid" role="list">
+        {% for block in section.blocks limit: 2 %}
+          <div class="sanad-trust__item" role="listitem" {{ block.shopify_attributes }}>
+            <div class="sanad-trust__item-title">{{ block.settings.title | escape }}</div>
+            {% if block.settings.body != blank %}
+              <div class="sanad-trust__item-body">{{ block.settings.body }}</div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </section>
 
@@ -34,46 +35,44 @@
     max-width: 1040px;
     margin: 0 auto;
     display: grid;
-    gap: 18px;
+    gap: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 16px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.9);
   }
 
   .sanad-trust__title {
     margin: 0;
-    font-size: clamp(1.15rem, 1.75vw, 1.4rem);
-    letter-spacing: -0.02em;
+    font-size: 0.98rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 
   .sanad-trust__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 8px;
   }
 
   @media (min-width: 750px) {
     .sanad-trust__grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
     }
   }
 
-  .sanad-trust__item {
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 18px;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.9);
-  }
-
   .sanad-trust__item-title {
-    font-size: 0.95rem;
+    font-size: 0.86rem;
     font-weight: 600;
     letter-spacing: -0.01em;
-    margin-bottom: 6px;
+    margin-bottom: 2px;
   }
 
   .sanad-trust__item-body {
-    font-size: 0.9rem;
-    line-height: 1.45;
-    color: rgba(29, 29, 31, 0.78);
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: rgba(29, 29, 31, 0.76);
   }
 
   .sanad-trust__item-body p {
@@ -125,9 +124,7 @@
       "name": "Sanad Trust",
       "blocks": [
         { "type": "trust_item", "settings": { "title": "Cash on Delivery", "body": "<p>Pay on delivery — simple and familiar.</p>" } },
-        { "type": "trust_item", "settings": { "title": "Whish Money", "body": "<p>Fast local payments supported.</p>" } },
-        { "type": "trust_item", "settings": { "title": "No Roadside Services", "body": "<p>We sell products only — no towing, no dispatch.</p>" } },
-        { "type": "trust_item", "settings": { "title": "Curated Kits", "body": "<p>No random accessories. Only what belongs in the kit.</p>" } }
+        { "type": "trust_item", "settings": { "title": "Whish Money", "body": "<p>Fast local payments supported.</p>" } }
       ]
     }
   ]

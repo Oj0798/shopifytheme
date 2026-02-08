@@ -38,7 +38,7 @@
         "hero_headline": {
           "type": "jumbo-text",
           "settings": {
-            "text": "<h1>Own the road, every day.</h1>",
+            "text": "<h1>Built for Lebanese roads.</h1>",
             "width": "100%",
             "max_width": "narrow",
             "alignment": "left",
@@ -63,7 +63,7 @@
         "hero_sub": {
           "type": "text",
           "settings": {
-            "text": "<p>Three premium kits built for Lebanon: heat, traffic, potholes, long days.</p>",
+            "text": "<p>Emergency. Comfort. Maintenance.</p>",
             "width": "100%",
             "max_width": "narrow",
             "alignment": "left",
@@ -88,7 +88,7 @@
         "hero_btn": {
           "type": "button",
           "settings": {
-            "label": "Discover the kits",
+            "label": "View kits",
             "link": "#kits",
             "style_class": "button",
             "width": "fit-content",
@@ -114,13 +114,13 @@
         "subheading": "<p>Emergency, Comfort, and Maintenance.</p>",
         "emergency_collection": "",
         "emergency_image": "",
-        "emergency_description": "<p>Fast confidence when the road turns unpredictable.</p>",
+        "emergency_description": "<p>Fast confidence when things go wrong.</p>",
         "comfort_collection": "",
         "comfort_image": "",
-        "comfort_description": "<p>Cooler, calmer driving through heat and traffic.</p>",
+        "comfort_description": "<p>Calmer driving in heat and traffic.</p>",
         "maintenance_collection": "",
         "maintenance_image": "",
-        "maintenance_description": "<p>Clean, ready, and tuned for everyday mileage.</p>",
+        "maintenance_description": "<p>Keep the car clean, ready, and steady.</p>",
         "note": "<p>Cash on Delivery and Whish Money available across Lebanon.</p>",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
@@ -135,27 +135,27 @@
           "type": "kit",
           "settings": {
             "kicker": "Emergency",
-            "title": "Emergency Kit",
-            "lead": "<p>Prepared for sudden moments — practical, quiet, reliable.</p>",
-            "bullets": "<ul><li>Safety + visibility</li><li>Power essentials</li><li>Self-preparedness tools</li></ul>"
+            "title": "Safety, visibility, power.",
+            "lead": "",
+            "bullets": ""
           }
         },
         "k2": {
           "type": "kit",
           "settings": {
             "kicker": "Comfort",
-            "title": "Comfort Kit",
-            "lead": "<p>Relief for heat, traffic, fatigue, and long drives.</p>",
-            "bullets": "<ul><li>Seat + posture comfort</li><li>Cooling / convenience</li><li>Interior usability</li></ul>"
+            "title": "Heat relief, convenience.",
+            "lead": "",
+            "bullets": ""
           }
         },
         "k3": {
           "type": "kit",
           "settings": {
             "kicker": "Maintenance",
-            "title": "Maintenance Kit",
-            "lead": "<p>Prevent problems — light upkeep, clean care, better habits.</p>",
-            "bullets": "<ul><li>Cleaning + care</li><li>Basic monitoring</li><li>Preventive essentials</li></ul>"
+            "title": "Care, monitoring, upkeep.",
+            "lead": "",
+            "bullets": ""
           }
         }
       },
@@ -165,12 +165,12 @@
         "k3"
       ],
       "settings": {
-        "heading": "Choose your lane.",
-        "subheading": "<p>Three kits. Three clear outcomes.</p>",
+        "heading": "",
+        "subheading": "",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
-        "padding-block-start": 0,
-        "padding-block-end": 20
+        "padding-block-start": 4,
+        "padding-block-end": 16
       }
     },
     "sanad_trust": {
@@ -179,44 +179,28 @@
         "t1": {
           "type": "trust_item",
           "settings": {
-            "title": "Cash on Delivery",
-            "body": "<p>Pay when it arrives.</p>"
+            "title": "Cash on Delivery + Whish Money",
+            "body": "<p>Across Lebanon.</p>"
           }
         },
         "t2": {
           "type": "trust_item",
           "settings": {
-            "title": "Whish Money",
-            "body": "<p>Fast local payment, no friction.</p>"
-          }
-        },
-        "t3": {
-          "type": "trust_item",
-          "settings": {
-            "title": "Lebanon delivery",
-            "body": "<p>From Beirut to every major region.</p>"
-          }
-        },
-        "t4": {
-          "type": "trust_item",
-          "settings": {
-            "title": "Premium curation",
-            "body": "<p>Only what earns its place in the kit.</p>"
+            "title": "Products only",
+            "body": "<p>No roadside services.</p>"
           }
         }
       },
       "block_order": [
         "t1",
-        "t2",
-        "t3",
-        "t4"
+        "t2"
       ],
       "settings": {
-        "heading": "Checkout confidence, Lebanon-wide.",
+        "heading": "Cash on Delivery + Whish Money across Lebanon.",
         "section_width": "page-width",
         "color_scheme": "scheme-1",
-        "padding-block-start": 12,
-        "padding-block-end": 48
+        "padding-block-start": 8,
+        "padding-block-end": 24
       }
     }
   },
