@@ -580,6 +580,15 @@
   .hero {
     position: relative;
     min-height: calc(var(--hero-min-height) - var(--hero-height-offset));
+    background-color: #f4f1ea;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: contain;
+    overflow: hidden;
+
+    {% if mobile_kit_image != blank %}
+      background-image: url('{{ mobile_kit_image | image_url: width: 2000 }}');
+    {% endif %}
   }
 
   .hero[data-shopify-visual-preview] {
@@ -792,12 +801,44 @@
     display: none;
   }
 
+  @media screen and (max-width: 768px) {
+    .hero {
+      background-position: bottom right;
+      background-size: 70%;
+      padding: 60px 20px 160px 20px;
+    }
+
+    .hero__content {
+      max-width: 100%;
+    }
+
+    .hero__title {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .hero__container {
+      overflow: hidden;
+    }
+
+    .hero__content-wrapper {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    .hero__content-wrapper :is(h1, .h1, .hero__title, jumbo-text, .jumbo-text-line) {
+      max-width: 100%;
+      word-break: normal;
+      white-space: normal;
+    }
+  }
+
   @media screen and (max-width: 749px) {
     .hero__container {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      background: #f8f4ec;
+      background: transparent;
       overflow: hidden;
       padding-inline: clamp(1rem, 4vw, 1.5rem);
       gap: 1rem;
@@ -815,22 +856,21 @@
       flex: 0 0 auto;
     }
 
-    .hero__content-wrapper :is(h1, .h1, jumbo-text, .jumbo-text-line) {
-      max-width: min(14ch, 100%);
-      line-height: clamp(1.05, 3.6vw, 1.12);
+    .hero__content-wrapper :is(h1, .h1, .hero__title, jumbo-text, .jumbo-text-line) {
+      max-width: 100%;
+      line-height: 1.2;
       overflow-wrap: anywhere;
       word-break: normal;
       white-space: normal;
     }
 
-    .hero__content-wrapper :is(h1, .h1) {
-      font-size: clamp(30px, 8.5vw, 46px);
+    .hero__content-wrapper :is(h1, .h1, .hero__title, .jumbo-text-line) {
+      font-size: 28px;
     }
 
     .hero__content-wrapper .jumbo-text-line {
       display: block;
       white-space: normal;
-      font-size: clamp(30px, 8.5vw, 46px);
     }
 
     .hero__content-wrapper jumbo-text {
@@ -843,7 +883,7 @@
     }
 
     .hero__mobile-media-slot {
-      display: block;
+      display: none;
       position: relative;
       width: 100%;
       aspect-ratio: 4 / 3;
@@ -855,7 +895,7 @@
     }
 
     .hero__mobile-kit-image {
-      display: block;
+      display: none;
       width: 100%;
       height: 100%;
       object-fit: contain;
