@@ -580,7 +580,7 @@
   .hero {
     position: relative;
     min-height: calc(var(--hero-min-height) - var(--hero-height-offset));
-    background-color: #f4f1ea;
+    background-color: transparent;
     background-repeat: no-repeat;
     background-position: bottom right;
     background-size: contain;
@@ -803,8 +803,9 @@
 
   @media screen and (max-width: 768px) {
     .hero {
+      background-color: transparent;
       background-position: bottom right;
-      background-size: 70%;
+      background-size: min(72vw, 360px);
       padding: 60px 20px 160px 20px;
     }
 
