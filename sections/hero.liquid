@@ -820,9 +820,10 @@
 
   @media screen and (max-width: 768px) {
     .hero {
-      background-color: transparent;
+      background-color: #fff;
       background-position: bottom right;
-      background-size: min(72vw, 360px);
+      background-size: contain;
+      background-repeat: no-repeat;
       padding: 60px 20px 160px 20px;
     }
 
@@ -863,7 +864,7 @@
     }
 
     .hero__media-wrapper {
-      display: none;
+      display: grid;
     }
 
     .hero__content-wrapper {
