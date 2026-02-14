@@ -677,6 +677,15 @@
   }
 
   @media screen and (max-width: 749px) {
+    .hero {
+      background-color: #fff;
+    }
+
+    .hero__media-wrapper {
+      background: #fff;
+      min-height: clamp(280px, 45vh, 480px);
+    }
+
     .hero__image--desktop,
     .hero__video--desktop,
     .hero__video-wrapper--desktop {
@@ -691,6 +700,14 @@
 
     .hero__media-wrapper {
       grid-template-columns: repeat(var(--hero-media-count-mobile, 1), 1fr);
+    }
+
+    .hero__image,
+    .hero__video,
+    .hero__video-poster {
+      object-fit: contain;
+      object-position: right bottom;
+      background: #fff;
     }
 
     /* Mobile stacking */
@@ -803,9 +820,10 @@
 
   @media screen and (max-width: 768px) {
     .hero {
-      background-color: transparent;
+      background-color: #fff;
       background-position: bottom right;
-      background-size: min(72vw, 360px);
+      background-size: contain;
+      background-repeat: no-repeat;
       padding: 60px 20px 160px 20px;
     }
 
@@ -846,7 +864,7 @@
     }
 
     .hero__media-wrapper {
-      display: none;
+      display: grid;
     }
 
     .hero__content-wrapper {

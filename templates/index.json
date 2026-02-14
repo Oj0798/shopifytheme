@@ -5,10 +5,10 @@
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
-        "image_1": "",
+        "image_1": "shopify://shop_images/ChatGPT_Image_Feb_14_2026_04_27_27_PM.png",
         "media_type_2": "image",
         "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
+        "custom_mobile_media": true,
         "media_type_1_mobile": "image",
         "media_type_2_mobile": "image",
         "link": "",
@@ -32,7 +32,8 @@
         "blurred_reflection": false,
         "reflection_opacity": 75,
         "padding-block-start": 24,
-        "padding-block-end": 24
+        "padding-block-end": 24,
+        "image_1_mobile": "shopify://shop_images/ChatGPT_Image_Feb_14_2026_04_27_27_PM.png"
       },
       "blocks": {
         "hero_headline": {
